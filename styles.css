@@ -1,0 +1,360 @@
+/* Biblical Times — public site
+ * Locked editorial palette + typography to match the iOS app.
+ * Designed to feel like a small newspaper, not a generic SaaS page.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+  --bg:           #F4EFE4;
+  --bg-soft:      #EFE9DC;
+  --paper:        #FBF8F0;
+  --text:         #26231D;
+  --text-muted:   #6B6457;
+  --text-faint:   #9A9384;
+  --maroon:       #8A3324;
+  --maroon-deep:  #6E2818;
+  --gold:         #B08537;
+  --black:        #0E0D0B;
+  --rule:         rgba(38, 35, 29, 0.18);
+  --rule-strong:  rgba(38, 35, 29, 0.55);
+}
+
+/* ───────────────────── Reset ───────────────────── */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(176, 133, 55, 0.06) 0%, transparent 32%),
+    radial-gradient(circle at 84% 88%, rgba(138, 51, 36, 0.05) 0%, transparent 40%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+body {
+  color: var(--text);
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--maroon); color: var(--paper); }
+
+/* ───────────────────── Layout ───────────────────── */
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 72px 28px 96px;
+}
+
+/* ───────────────────── Masthead ───────────────────── */
+
+.masthead {
+  text-align: center;
+  padding-bottom: 18px;
+  border-bottom: 4px double var(--text);
+  position: relative;
+}
+
+.masthead::before {
+  content: 'Est. MMXXVI';
+  display: block;
+  font-family: 'Lora', serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.masthead a {
+  text-decoration: none;
+  color: var(--text);
+  display: inline-block;
+}
+
+.masthead h1 {
+  font-family: 'Cormorant Garamond', 'Lora', Georgia, serif;
+  font-weight: 500;
+  font-size: 44px;
+  letter-spacing: -1px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.kicker {
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--maroon);
+  margin-top: 18px;
+  margin-bottom: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.kicker::before,
+.kicker::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+}
+
+/* ───────────────────── Date stamp ───────────────────── */
+
+.date {
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: -28px;
+  margin-bottom: 32px;
+}
+
+/* ───────────────────── Paragraphs ───────────────────── */
+
+p {
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+p.lead {
+  font-family: 'Cormorant Garamond', 'Lora', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--text);
+  margin-top: 0;
+  margin-bottom: 32px;
+  text-wrap: balance;
+}
+
+p.lead::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: normal;
+  font-weight: 600;
+  float: left;
+  font-size: 58px;
+  line-height: 0.85;
+  color: var(--maroon);
+  padding: 7px 9px 0 0;
+}
+
+/* ───────────────────── Headings ───────────────────── */
+
+h2 {
+  font-family: 'Cormorant Garamond', 'Lora', Georgia, serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  color: var(--text);
+  margin-top: 40px;
+  margin-bottom: 14px;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--maroon);
+  margin-top: 10px;
+}
+
+h3 {
+  font-family: 'Lora', Georgia, serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--maroon);
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+/* ───────────────────── Lists ───────────────────── */
+
+ul {
+  margin: 12px 0 22px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+ul li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+ul li::before {
+  content: '·';
+  position: absolute;
+  left: 8px;
+  top: -5px;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ───────────────────── Links ───────────────────── */
+
+a {
+  color: var(--maroon);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+a:hover { color: var(--maroon-deep); }
+
+strong { font-weight: 600; color: var(--text); }
+
+/* ───────────────────── Pills ───────────────────── */
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  background: var(--maroon);
+  color: var(--paper);
+  border-radius: 999px;
+  font-family: 'Lora', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: transform 0.15s ease, background 0.15s ease;
+  box-shadow: 0 2px 0 rgba(110, 40, 24, 0.18);
+}
+
+.nav-pill:hover {
+  background: var(--maroon-deep);
+  transform: translateY(-1px);
+  color: var(--paper);
+}
+
+/* ───────────────────── Ornament ───────────────────── */
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 40px 0;
+  color: var(--gold);
+  font-size: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.05em;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 70px;
+  background: var(--rule);
+}
+
+/* ───────────────────── Helpers ───────────────────── */
+
+.muted { color: var(--text-muted); }
+.small { font-size: 14px; }
+.center { text-align: center; }
+.mt-lg { margin-top: 24px; }
+
+/* ───────────────────── Footer ───────────────────── */
+
+.footer {
+  margin-top: 72px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+
+.footer-nav {
+  font-family: 'Lora', serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin: 0 14px;
+  transition: color 0.15s ease;
+}
+
+.footer-nav a:hover { color: var(--maroon); }
+
+.colophon {
+  margin-top: 16px;
+  font-family: 'Cormorant Garamond', 'Lora', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+/* ───────────────────── Dark mode ───────────────────── */
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background:
+      radial-gradient(circle at 18% 14%, rgba(176, 133, 55, 0.08) 0%, transparent 32%),
+      radial-gradient(circle at 84% 88%, rgba(196, 74, 56, 0.06) 0%, transparent 40%),
+      #1A1814;
+  }
+  body { color: #EDE6D5; }
+  .masthead { border-bottom-color: #EDE6D5; }
+  .masthead h1, h2, p, strong { color: #EDE6D5; }
+  p.lead { color: #EDE6D5; }
+  p.lead::first-letter { color: #C44A38; }
+  a, .kicker, h3 { color: #D9624D; }
+  a:hover { color: #ECA086; }
+  h2::after { background: #D9624D; }
+  .muted, .footer-nav, .footer-nav a, .colophon, .date { color: rgba(237, 230, 213, 0.55); }
+  ul li::before { color: #D9A964; }
+  .footer { border-top-color: rgba(237, 230, 213, 0.16); }
+  .ornament::before, .ornament::after { background: rgba(237, 230, 213, 0.18); }
+  .nav-pill { background: #D9624D; color: #1A1814; box-shadow: 0 2px 0 rgba(196, 74, 56, 0.25); }
+  .nav-pill:hover { background: #C44A38; }
+  ::selection { background: #D9624D; color: #1A1814; }
+}
+
+/* ───────────────────── Responsive ───────────────────── */
+
+@media (max-width: 480px) {
+  .wrap { padding: 52px 22px 80px; }
+  .masthead h1 { font-size: 34px; }
+  p.lead { font-size: 19px; }
+  p.lead::first-letter { font-size: 48px; padding-right: 7px; }
+  h2 { font-size: 23px; }
+  body { font-size: 16px; }
+  .kicker { gap: 10px; }
+  .kicker::before, .kicker::after { width: 18px; }
+}
